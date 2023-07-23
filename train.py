@@ -5,9 +5,9 @@ from decisionTree import decisionTree
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
-    return accuracy
+    return round(accuracy * 100, 5)
 
-data = datasets.load_breast_cancer()
+data = datasets.load_digits()
 x, y = data.data, data.target
 
 x_train, x_test, y_train, y_test = train_test_split(

@@ -46,13 +46,11 @@ class decisionTree:
             thresholds = np.unique(X_feat)
             for thresh in thresholds:
                 score = self._information_gain(X_feat, y, thresh)
-                
                 if score > split['score']:
-                    #split['score'] = score
+                    split['score'] = score
                     split['feat'] = feat
                     split['thresh'] = thresh
                     
-            
         return split['feat'], split['thresh']
     
     def _build_tree(self, X, y, depth=0):
@@ -61,8 +59,12 @@ class decisionTree:
 
         # stopping condition
         if self._is_finished(depth):
-            most_common_Label = np.argmax(np.bincount(y))
-            return Node(value=most_common_Label)
+            #print(np.dtype(y[0]))
+            frequencies = np.bincount(y)
+            #print(frequencies.shape, end="")
+            if frequencies.shape != 0:
+                most_common_Label = np.argmax(np.bincount(y))
+                return Node(value=most_common_Label)
 
         # get best split
         rnd_feats = np.random.choice(self.n_features, self.n_features, replace=False)
