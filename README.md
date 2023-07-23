@@ -1,6 +1,5 @@
 # Decision-tree
-Implementation from scratch for Decision Trees. Currently only using the sample datasets from sklearn, I plan to expand the usage for other datasets as well.
-
+Implementation from scratch for Decision Trees. Currently only using the sample datasets from sklearn, I plan to extend the usage and enhance the performance for external datasets as well.
 
 
 ## References
