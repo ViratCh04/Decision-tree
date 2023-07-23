@@ -60,7 +60,7 @@ class decisionTree:
         self.n_class_labels = len(np.unique(y))
 
         # stopping condition
-        if self._is_finished(depth) and len(y) != 0:
+        if self._is_finished(depth):
             most_common_Label = np.argmax(np.bincount(y))
             return Node(value=most_common_Label)
 
